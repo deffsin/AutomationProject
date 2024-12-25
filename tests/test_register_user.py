@@ -30,3 +30,5 @@ def test_signup(driver):
     assert login_and_signup_page.is_new_user_signup_visible(), "Text 'New User Signup!' in not displayed"
     login_and_signup_page.fill_signup_form(name=name, email=email)
     login_and_signup_page.click_signup_button()
+
+# test
