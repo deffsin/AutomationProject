@@ -8,6 +8,8 @@ from locators.login_and_signup_page_locators import LoginAndSignUpPageLocators
 
 import time
 
+from pages.account_information_page import AccountInformationPage
+
 class LoginAndSignUpPage:
     def __init__(self, driver):
         self.driver = driver
@@ -23,7 +25,7 @@ class LoginAndSignUpPage:
         )
         accept_cookies_button.click()
 
-    def is_new_user_signup_visible(self):
+    def is_new_user_signup_text_visible(self):
         new_user_signup = WebDriverWait(self.driver, 10).until(
             expected_conditions.visibility_of_element_located(LoginAndSignUpPageLocators.NEW_USER_SIGNUP_TEXT)
         )
@@ -54,10 +56,10 @@ if __name__ == "__main__":
         login_and_signup_page = LoginAndSignUpPage(driver)
         login_and_signup_page.open()
         login_and_signup_page.accept_cookies()
-        login_and_signup_page.is_new_user_signup_visible()
+        login_and_signup_page.is_new_user_signup_text_visible()
         login_and_signup_page.fill_signup_form(name="Name", email="emfsdfsfsail@gmail.com")
         login_and_signup_page.click_signup_button()
-        time.sleep(5)
+        time.sleep(2)
 
     finally:
         driver.quit()
