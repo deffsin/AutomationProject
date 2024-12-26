@@ -32,6 +32,5 @@ if __name__ == "__main__":
         home_page = HomePage(driver)
         home_page.open()
         home_page.accept_cookies()
-        # home_page.click_login_and_signup()
     finally:
         driver.quit()
