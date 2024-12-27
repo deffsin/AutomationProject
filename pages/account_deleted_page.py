@@ -1,12 +1,9 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expected_conditions
 from locators.account_deleted_page_locators import AccountDeletedPageLocators
+from pages.base_page import BasePage
 
-class AccountDeletedPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.url = "https://www.automationexercise.com/delete_account"
-
+class AccountDeletedPage(BasePage):
     def account_deleted_text_visible(self):
         account_deleted_text = WebDriverWait(self.driver, 10).until(
             expected_conditions.visibility_of_element_located(AccountDeletedPageLocators.ACCOUNT_DELETED_TEXT)

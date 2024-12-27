@@ -2,15 +2,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expected_conditions
 from selenium.webdriver.support.ui import Select
 from locators.account_information_page_locators import AccountInformationPageLocators
+from pages.base_page import BasePage
 
-class AccountInformationPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.url = "https://www.automationexercise.com/signup"
-
-    def open(self):
-        self.driver.get(self.url)
-
+class AccountInformationPage(BasePage):
     def is_account_information_text_visible(self):
         account_information_visible = WebDriverWait(self.driver, 10).until(
             expected_conditions.visibility_of_element_located(AccountInformationPageLocators.ENTER_ACCOUNT_INFORMATION_TEXT)

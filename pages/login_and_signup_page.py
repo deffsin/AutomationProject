@@ -5,19 +5,11 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from locators.login_and_signup_page_locators import LoginAndSignUpPageLocators
+from pages.base_page import BasePage
 
 import time
 
-from pages.account_information_page import AccountInformationPage
-
-class LoginAndSignUpPage:
-    def __init__(self, driver):
-        self.driver = driver
-        self.url = "https://www.automationexercise.com/login"
-
-    def open(self):
-        self.driver.get(self.url)
-
+class LoginAndSignUpPage(BasePage):
     # Potom Delete
     def accept_cookies(self):
         accept_cookies_button = WebDriverWait(self.driver, 10).until(
