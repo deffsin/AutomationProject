@@ -1,9 +1,10 @@
-from locators.home_page_locators import HomePageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expected_conditions
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
+
+from locators.home_page_locators import HomePageLocators
 from locators.login_and_signup_page_locators import LoginAndSignUpPageLocators
 from pages.base_page import BasePage
 

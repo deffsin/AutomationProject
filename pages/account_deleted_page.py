@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expected_conditions
+
 from locators.account_deleted_page_locators import AccountDeletedPageLocators
 from pages.base_page import BasePage
 
