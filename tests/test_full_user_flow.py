@@ -7,6 +7,7 @@ from pages.account_deleted_page import AccountDeletedPage
 from pages.home_page import HomePage
 from pages.login_and_signup_page import LoginAndSignUpPage
 
+# This is Test Case 1: Register User
 @pytest.mark.usefixtures("driver")
 class TestFullUserFlow:
     def register_user(self, name, email):
