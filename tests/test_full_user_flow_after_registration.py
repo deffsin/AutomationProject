@@ -11,7 +11,7 @@ from logging_config import logger
 
 # This is Test Case 1: Register User
 @pytest.mark.usefixtures("driver")
-class TestFullUserFlow:
+class TestFullUserFlowAfterRegistration:
     def register_user(self, name, email):
         logger.info("Starting user registration process.")
         home_page = HomePage(self.driver)
@@ -75,7 +75,7 @@ class TestFullUserFlow:
 
     # Main test
     @pytest.mark.parametrize("name, email", [
-        ("Marko", "test113ssa@gmail.com"),
+        ("Marko", "redmorrelo@gmail.com"),
         ("Anna", "testwzcg2211wqw312@gmail.com")
     ])
     def test_register_and_delete_user(self, name, email):

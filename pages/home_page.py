@@ -14,6 +14,12 @@ class HomePage(BasePage):
         )
         accept_cookies_button.click()
 
+    def is_home_page_visible(self):
+        home_page_visible = WebDriverWait(self.driver, 10).until(
+            expected_conditions.visibility_of_element_located(HomePageLocators.HOME_BUTTON)
+        )
+        return home_page_visible.is_displayed()
+
     def click_login_and_signup(self):
         login_button = WebDriverWait(self.driver, 10).until(
             expected_conditions.element_to_be_clickable(HomePageLocators.LOGIN_AND_SIGNUP_BUTTON)
