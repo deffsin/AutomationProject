@@ -24,6 +24,12 @@ class LoginAndSignUpPage(BasePage):
         )
         password_field.send_keys(password)
 
+    def login_error_text_visible(self):
+        login_error_text = WebDriverWait(self.driver, timeout=10).until(
+            expected_conditions.visibility_of_element_located(LoginAndSignUpPageLocators.LOGIN_ERROR_MESSAGE_TEXT)
+        )
+        return login_error_text.is_displayed()
+
     def click_login_button(self):
         login_button = WebDriverWait(self.driver, 10).until(
         expected_conditions.presence_of_element_located(LoginAndSignUpPageLocators.LOGIN_BUTTON)
