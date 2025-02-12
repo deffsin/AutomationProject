@@ -75,8 +75,8 @@ class TestFullUserFlowAfterRegistration:
 
     # Main test
     @pytest.mark.parametrize("name, email", [
-        ("Marko", "redmorrelo@gmail.com"),
-        ("Anna", "testwzcg2211wqw312@gmail.com")
+        ("Marko", "helloworld228@gmail.com"),
+        ("Anna", "worldhello119@gmail.com")
     ])
     def test_register_and_delete_user(self, name, email):
         logger.info(f"Starting test case for user: {name} with email: {email}.")
