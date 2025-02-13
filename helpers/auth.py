@@ -1,5 +1,5 @@
 from pages.home_page import HomePage
-from pages.login_and_signup_page import LoginAndSignUpPage
+from pages.login_and_register_page import LoginAndSignUpPage
 from pages.home_registered_account_page import HomeRegisteredAccountPage
 from logging_config import logger
 

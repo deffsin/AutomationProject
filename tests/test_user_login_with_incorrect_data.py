@@ -1,7 +1,7 @@
 import pytest
 
 from pages.home_page import HomePage
-from pages.login_and_signup_page import LoginAndSignUpPage
+from pages.login_and_register_page import LoginAndRegisterPage
 
 from logging_config import logger
 
@@ -11,7 +11,7 @@ class TestUserLoginWithIncorrectData:
     def login_user_with_incorrect_data(self, email, password):
         logger.info("Starting user signing in process with incorrect email and password.")
         home_page = HomePage(self.driver)
-        login_and_signup_page = LoginAndSignUpPage(self.driver)
+        login_and_signup_page = LoginAndRegisterPage(self.driver)
 
         logger.info("Opening the home page")
         home_page.open()

@@ -5,7 +5,7 @@ from pages.account_created_page import AccountCreatedPage
 from pages.home_registered_account_page import HomeRegisteredAccountPage
 from pages.account_deleted_page import AccountDeletedPage
 from pages.home_page import HomePage
-from pages.login_and_signup_page import LoginAndSignUpPage
+from pages.login_and_register_page import LoginAndRegisterPage
 
 from logging_config import logger
 
@@ -15,7 +15,7 @@ class TestFullUserFlowAfterRegistration:
     def register_user(self, name, email):
         logger.info("Starting user registration process.")
         home_page = HomePage(self.driver)
-        login_and_signup_page = LoginAndSignUpPage(self.driver)
+        login_and_signup_page = LoginAndRegisterPage(self.driver)
 
         logger.info("Opening the home page.")
         home_page.open()
@@ -75,8 +75,8 @@ class TestFullUserFlowAfterRegistration:
 
     # Main test
     @pytest.mark.parametrize("name, email", [
-        ("Marko", "helloworld228@gmail.com"),
-        ("Anna", "worldhello119@gmail.com")
+        ("Marko", "helloworldd228@gmail.com"),
+        ("Anna", "worldhelloo119@gmail.com")
     ])
     def test_register_and_delete_user(self, name, email):
         logger.info(f"Starting test case for user: {name} with email: {email}.")

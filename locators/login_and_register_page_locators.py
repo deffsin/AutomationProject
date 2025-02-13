@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class LoginAndSignUpPageLocators:
+class LoginAndRegisterPageLocators:
     # Login
     LOGIN_TO_YOUR_ACCOUNT_TEXT = (By.XPATH, "//h2[contains(text(), 'Login to your account')]")
     LOGIN_EMAIL_FIELD = (By.CSS_SELECTOR, "input[data-qa='login-email']")
@@ -8,7 +8,7 @@ class LoginAndSignUpPageLocators:
     LOGIN_ERROR_MESSAGE_TEXT = (By.XPATH, "//p[contains(text(), 'Your email or password is incorrect!')]")
     LOGIN_BUTTON = (By.CSS_SELECTOR, "button[data-qa='login-button']")
 
-    # Sign Up
+    # Register
     NEW_USER_SIGNUP_TEXT = (By.XPATH, "//h2[contains(text(), 'New User Signup!')]")
     NAME_FIELD = (By.CSS_SELECTOR, "input[data-qa='signup-name']")
     EMAIL_FIELD = (By.CSS_SELECTOR, "input[data-qa='signup-email']")
