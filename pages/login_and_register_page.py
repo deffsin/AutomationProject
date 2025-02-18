@@ -1,11 +1,12 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as expected_conditions
 
+from locators.base_page_locators import BasePageLocators
 from locators.login_and_register_page_locators import LoginAndRegisterPageLocators
+
 from pages.base_page import BasePage
 
 class LoginAndRegisterPage(BasePage):
-
     # Login
     def is_login_to_your_account_visible(self):
         login_to_your_account = WebDriverWait(self.driver, 10).until(
@@ -59,3 +60,15 @@ class LoginAndRegisterPage(BasePage):
             expected_conditions.presence_of_element_located(LoginAndRegisterPageLocators.SIGNUP_BUTTON)
         )
         signup_button.click()
+
+    def account_created_text_visible(self):
+        account_created_text = WebDriverWait(self.driver, 10).until(
+            expected_conditions.visibility_of_element_located(LoginAndRegisterPageLocators.ACCOUNT_CREATED_TEXT)
+        )
+        return account_created_text.is_displayed()
+
+    def continue_button_click(self):
+        continue_button = WebDriverWait(self.driver, 10).until(
+            expected_conditions.element_to_be_clickable(BasePageLocators.CONTINUE_BUTTON)
+        )
+        continue_button.click()

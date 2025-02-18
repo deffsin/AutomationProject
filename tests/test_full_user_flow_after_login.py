@@ -1,6 +1,5 @@
 import pytest
-from pages.home_registered_account_page import HomeRegisteredAccountPage
-from pages.account_deleted_page import AccountDeletedPage
+from pages.home_page import HomePage
 from helpers.auth import login_user
 from logging_config import logger
 
@@ -8,14 +7,13 @@ from logging_config import logger
 class TestFullUserFlowAfterLogin:
     def delete_user_account(self):
         logger.info("Starting account deletion process.")
-        home_registered_account_page = HomeRegisteredAccountPage(self.driver)
-        account_deleted_page = AccountDeletedPage(self.driver)
+        home_page = HomePage(self.driver)
 
         logger.info("Clicking the 'Delete Account' button.")
-        home_registered_account_page.delete_account()
+        home_page.delete_account()
 
         logger.info("Verifying 'ACCOUNT DELETED!' text is visible.")
-        account_deleted_page.account_deleted_text_visible()
+        home_page.account_deleted_text_visible()
 
     @pytest.mark.parametrize("email, password", [
         ("helloworld228@gmail.com", "Wozor119"),

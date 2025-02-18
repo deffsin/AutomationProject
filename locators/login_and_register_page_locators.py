@@ -13,3 +13,6 @@ class LoginAndRegisterPageLocators:
     NAME_FIELD = (By.CSS_SELECTOR, "input[data-qa='signup-name']")
     EMAIL_FIELD = (By.CSS_SELECTOR, "input[data-qa='signup-email']")
     SIGNUP_BUTTON = (By.CSS_SELECTOR, "button[data-qa='signup-button']")
+
+    # After successful registration user can see this text
+    ACCOUNT_CREATED_TEXT = (By.XPATH, "//b[contains(text(), 'Account Created')]")

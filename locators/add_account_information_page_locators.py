@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class AccountInformationPageLocators:
+class AddAccountInformationPageLocators:
     # ENTER ACCOUNT INFORMATION
     ENTER_ACCOUNT_INFORMATION_TEXT = (By.XPATH, "//b[contains(text(), 'Enter Account Information')]")
 

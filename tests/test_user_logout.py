@@ -1,5 +1,5 @@
 import pytest
-from pages.account_logout_page import AccountLogoutPage
+from pages.home_page import HomePage
 from helpers.auth import login_user
 from logging_config import logger
 
@@ -7,7 +7,7 @@ from logging_config import logger
 class TestFullUserFlowAfterLogin:
     def user_logout(self):
         logger.info("Initiating user logout process.")
-        account_logout_page = AccountLogoutPage(self.driver)
+        account_logout_page = HomePage(self.driver)
 
         logger.info("Clicking on the 'Logout' button.")
         account_logout_page.logout_button_click()
@@ -15,8 +15,8 @@ class TestFullUserFlowAfterLogin:
         logger.info("User successfully logged out.")
 
     @pytest.mark.parametrize("email, password", [
-        ("helloworld228@gmail.com", "Wozor119"),
-        ("worldhello119@gmail.com", "Wozor119")
+        ("helloworldd2281@gmail.com", "Wozor119"),
+        ("worldhelloo1191@gmail.com", "Wozor119")
     ])
     def test_user_login_and_delete_user(self, email, password):
         logger.info(f"Starting test case for user with email: {email}.")

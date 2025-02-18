@@ -34,7 +34,7 @@ class TestUserLoginWithIncorrectData:
         assert login_and_signup_page.login_error_text_visible(), "'Your email or password is incorrect' text is not visible"
 
     @pytest.mark.parametrize("email, password", [
-        ("redmorrelo@gmail.com", "Wozor119s"),
+        ("redmorrelo@gmail.com", "Wozor119"),
         ("testtestik228119@gmail.com", "Wozor119s")
     ])
     def test_user_login_with_incorrect_data(self, email, password):

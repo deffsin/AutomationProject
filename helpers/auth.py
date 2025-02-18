@@ -1,6 +1,5 @@
 from pages.home_page import HomePage
-from pages.login_and_register_page import LoginAndSignUpPage
-from pages.home_registered_account_page import HomeRegisteredAccountPage
+from pages.login_and_register_page import LoginAndRegisterPage
 from logging_config import logger
 
 # User login with correct email and password
@@ -8,8 +7,8 @@ from logging_config import logger
 def login_user(driver, email, password):
     logger.info("Starting user signing in process.")
     home_page = HomePage(driver)
-    login_and_signup_page = LoginAndSignUpPage(driver)
-    home_registered_account_page = HomeRegisteredAccountPage(driver)
+    login_and_signup_page = LoginAndRegisterPage(driver)
+    home_registered_account_page = HomePage(driver)
 
     logger.info("Opening the home page")
     home_page.open()

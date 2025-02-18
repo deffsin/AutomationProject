@@ -1,11 +1,9 @@
 import pytest
 
-from pages.account_information_page import AccountInformationPage
-from pages.account_created_page import AccountCreatedPage
-from pages.home_registered_account_page import HomeRegisteredAccountPage
-from pages.account_deleted_page import AccountDeletedPage
 from pages.home_page import HomePage
 from pages.login_and_register_page import LoginAndRegisterPage
+from pages.add_account_information_page import AddAccountInformationPage
+
 
 from logging_config import logger
 
@@ -33,14 +31,14 @@ class TestFullUserFlowAfterRegistration:
 
     def complete_account_information(self):
         logger.info("Completing account information process.")
-        account_information_page = AccountInformationPage(self.driver)
+        add_account_information_page = AddAccountInformationPage(self.driver)
 
         logger.info("Verifying the presence of 'ENTER ACCOUNT INFORMATION' text.")
-        assert account_information_page.is_account_information_text_visible(), "'ENTER ACCOUNT INFORMATION' text is not visible"
+        assert add_account_information_page.is_account_information_text_visible(), "'ENTER ACCOUNT INFORMATION' text is not visible"
 
         logger.info("Filling in account information and address details.")
-        account_information_page.fill_account_information(password="Wozor119")
-        account_information_page.fill_address_information(
+        add_account_information_page.fill_account_information(password="Wozor119")
+        add_account_information_page.fill_address_information(
             first_name="Denis",
             last_name="Sss",
             company="HelloWorld",
@@ -54,29 +52,28 @@ class TestFullUserFlowAfterRegistration:
 
     def delete_user_account(self):
         logger.info("Starting account deletion process.")
-        account_created_page = AccountCreatedPage(self.driver)
-        home_registered_account_page = HomeRegisteredAccountPage(self.driver)
-        account_deleted_page = AccountDeletedPage(self.driver)
+        home_page = HomePage(self.driver)
+        login_and_register_page = LoginAndRegisterPage(self.driver)
 
         logger.info("Verifying 'ACCOUNT CREATED!' text is visible.")
-        assert account_created_page.account_created_text_visible(), "'ACCOUNT CREATED!' text is not visible"
+        assert login_and_register_page.account_created_text_visible(), "'ACCOUNT CREATED!' text is not visible"
         logger.info("Clicking the 'Continue' button after account creation.")
-        account_created_page.continue_button_click()
+        home_page.continue_button_click()
 
         logger.info("Verifying user is logged in as their username.")
-        assert home_registered_account_page.logged_in_as_text_visible(), "'Logged in as username' text is not visible"
+        assert home_page.logged_in_as_text_visible(), "'Logged in as username' text is not visible"
         logger.info("Clicking the 'Delete Account' button.")
-        home_registered_account_page.delete_account()
+        home_page.delete_account()
 
         logger.info("Verifying 'ACCOUNT DELETED!' text is visible.")
-        account_deleted_page.account_deleted_text_visible()
+        home_page.account_deleted_text_visible()
         logger.info("Clicking the 'Continue' button after account deletion.")
-        account_deleted_page.continue_button_click()
+        home_page.continue_button_click()
 
     # Main test
     @pytest.mark.parametrize("name, email", [
-        ("Marko", "helloworldd228@gmail.com"),
-        ("Anna", "worldhelloo119@gmail.com")
+        ("Marko", "helloworldd2281@gmail.com"),
+        ("Anna", "worldhelloo1191@gmail.com")
     ])
     def test_register_and_delete_user(self, name, email):
         logger.info(f"Starting test case for user: {name} with email: {email}.")
